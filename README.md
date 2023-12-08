@@ -2,7 +2,7 @@
 
 #### Lets the user create simple project templates with a simple line of code.
 
-For now, it only creates C, C++ and Python projects that output a "Hello, World!" message.
+For now, it only creates C and C++ projects that output a "Hello, World!" message.
 
 ### Setup:
     - Make sure you have make installed.
