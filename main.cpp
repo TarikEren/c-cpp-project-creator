@@ -32,6 +32,7 @@ int create_c_project() {
 	main_file.close();
     return 0;
 }
+
 int create_cpp_project() {
 	std::ofstream main_file("main.cpp");
 	if (!main_file) 
@@ -86,11 +87,12 @@ void project_prompt(char* project_name, int create_makefile) {
 int main(int argc, char** argv) {
     for (int i = 1; i < argc; i++) {
         if (!strcmp(argv[i], "-h")) {
-            printf("help\n");
+            std::cout << "Usage: project_creator.exe [flags] [project-name]\n";
+            std::cout << "\nFlags:\n'-h': Displays flags\n'--no-make': Creates a project without a makefile";
             return 0;
         }
         else if (!strcmp(argv[i], "--no-make")) {
-            printf("User opted for no makefile.\n");
+            std::cout << "User opted for no makefile.\n";
             char* project_name = argv[i+1];
             project_prompt(project_name, 0);
             return 0;
