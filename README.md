@@ -17,5 +17,5 @@ For now, it only creates C, C++ and Python projects that output a "Hello, World!
     project-creator [flags] [project name]
     
     Flags (More to be added):
-    - -h: Help command that displays available commands
+    - -h: Help command that displays available commands (Only prints "help" for now)
     

@@ -53,13 +53,13 @@ void project_prompt(char* project_name) {
         case 1:
             create_c_project();
             if (create_c_project() == 0) {
-                std::cout << "\nProject created successfully.\nType cd ./" << project_name << "; make; ./main.exe to run." << std::endl;
+                std::cout << "\nProject created successfully.\nType cd " << project_name << "; make; main.exe to run." << std::endl;
             }
             break;
         case 2:
             create_cpp_project();
             if (create_cpp_project() == 0) {
-                std::cout << "\nProject created successfully.\nType cd ./" << project_name << "; make; ./main.exe to run." << std::endl;
+                std::cout << "\nProject created successfully.\nType cd " << project_name << "; make; main.exe to run." << std::endl;
             }
             break;
         case 3:
