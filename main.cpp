@@ -51,13 +51,13 @@ void project_prompt(char* project_name, int create_makefile) {
     std::cin >> opt; 
     if (create_makefile == 1) {
         if (opt == 1) {
-            std::cout << "\nProject created successfully.\nType cd " << project_name << "; make; main.exe to run." << std::endl;
+            std::cout << "\nProject created successfully." << std::endl;
             create_c_project();
             create_c_makefile();
             return;
         }
         else if (opt == 2) {
-            std::cout << "\nProject created successfully.\nType cd " << project_name << "; make; main.exe to run." << std::endl;
+            std::cout << "\nProject created successfully." << std::endl;
             create_cpp_project();
             create_cpp_makefile();
             return;
@@ -69,12 +69,12 @@ void project_prompt(char* project_name, int create_makefile) {
     }
     else if (create_makefile == 0) {
         if (opt == 1) {
-            std::cout << "\nProject created successfully.\nType cd " << project_name << "; make; main.exe to run." << std::endl;
+            std::cout << "\nProject created successfully." << std::endl;
             create_c_project();
             return;
         }
         else if (opt == 2) {
-            std::cout << "\nProject created successfully.\nType cd " << project_name << "; make; main.exe to run." << std::endl;
+            std::cout << "\nProject created successfully." << std::endl;
             create_cpp_project();
             return;
         }
