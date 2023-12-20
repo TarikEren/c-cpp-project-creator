@@ -16,8 +16,7 @@ Creates C and C++ projects that output a "Hello, World!" message.
 
 ### Usage:
     project-creator [flags] [project name]
-    
     Flags:
-    - -h: Help command that displays available commands (Only prints "help" for now)
-    - --no-make: Creates project without a makefile.
+    -h          Prints out command list
+    --no-make   No makefile
     
