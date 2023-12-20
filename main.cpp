@@ -1,13 +1,22 @@
 #include <iostream>
 #include <fstream>
-#include <cstring>
+#include <string.h>
 #include <filesystem>
+
+void help_prompt() {
+    printf("Creates a C or C++ project template that prints out 'Hello, World!'\n");
+    printf("Usage: project-creator [flags] [project name]\n\n");
+    printf("Flags:\n");
+    printf("-h\t\tPrints out command list\n");
+    printf("--no-make\tNo makefile\n");
+    exit(EXIT_SUCCESS);
+}
 
 int create_c_makefile() {
     std::ofstream makefile("makefile");
 	if (!makefile) 
 		return 1;
-	std::string makefile_code = "CC = gcc \n\ndefault: main.o\n\t${CC} main.o -o main\n\nmain.c:\n\t${CC} main.c -c\n\nclean:\n\tdel *.o *.exe";
+	std::string makefile_code = "CC = gcc \n\ndefault: main.o\n\t${CC} main.o -o main\n\nmain.o: main.c\n\t${CC} main.c -c\n\nclean:\n\tdel *.o *.exe";
 	makefile << makefile_code;
 	makefile.close();
 	return 0;
@@ -17,7 +26,7 @@ int create_cpp_makefile() {
 	std::ofstream makefile("makefile");
 	if (!makefile) 
 		return 1;
-	std::string makefile_code = "CC = g++\n\ndefault: main.o\n\t${CC} main.o -o main\n\nmain.cpp:\n\t${CC} main.cpp -c\n\nclean:\n\tdel *.o *.exe";
+	std::string makefile_code = "CC = g++\n\ndefault: main.o\n\t${CC} main.o -o main\n\nmain.o: main.cpp\n\t${CC} main.cpp -c\n\nclean:\n\tdel *.o *.exe";
 	makefile << makefile_code;
 	makefile.close();
 	return 0;
@@ -43,7 +52,7 @@ int create_cpp_project() {
 	return 0;
 }
 
-void project_prompt(char* project_name, int create_makefile) {
+void project_prompt(const char* project_name, int create_makefile) {
     std::filesystem::create_directory(project_name);
     std::filesystem::current_path(project_name);
     int opt;
@@ -54,53 +63,52 @@ void project_prompt(char* project_name, int create_makefile) {
             std::cout << "\nProject created successfully." << std::endl;
             create_c_project();
             create_c_makefile();
-            return;
+            exit(EXIT_SUCCESS);
         }
         else if (opt == 2) {
             std::cout << "\nProject created successfully." << std::endl;
             create_cpp_project();
             create_cpp_makefile();
-            return;
+            exit(EXIT_SUCCESS);
         }
         else {
             std::cout << "Wrong input" << std::endl;
-            return;
+            exit(EXIT_SUCCESS);
         }
     }
     else if (create_makefile == 0) {
         if (opt == 1) {
             std::cout << "\nProject created successfully." << std::endl;
             create_c_project();
-            return;
+            exit(EXIT_SUCCESS);
         }
         else if (opt == 2) {
             std::cout << "\nProject created successfully." << std::endl;
             create_cpp_project();
-            return;
+            exit(EXIT_SUCCESS);
         }
         else {
             std::cout << "Wrong input" << std::endl;
-            return;
+            exit(EXIT_SUCCESS);
         }
     }
 }
-int main(int argc, char** argv) {
+
+int main(int argc, const char** argv) { 
+    const char* flags[4] = {"-h", "--no-make"};
     for (int i = 1; i < argc; i++) {
-        if (!strcmp(argv[i], "-h")) {
-            std::cout << "Usage: project_creator.exe [flags] [project-name]\n";
-            std::cout << "\nFlags:\n'-h': Displays flags\n'--no-make': Creates a project without a makefile";
-            return 0;
-        }
-        else if (!strcmp(argv[i], "--no-make")) {
-            std::cout << "User opted for no makefile.\n";
-            char* project_name = argv[i+1];
-            project_prompt(project_name, 0);
-            return 0;
-        }
-        else {
-            char* project_name = argv[i];
-            project_prompt(project_name, 1);
-            return 0;
+        for (int j = 0; j < 2; j++) {
+            if (!strcmp(flags[i], "-h") && !strcmp(argv[i], "-h"))
+                help_prompt();
+            else if (!strcmp(flags[i], "--no-make") && !strcmp(argv[i], "--no-make")) {
+                printf("User opted for no makefile\n");
+                project_prompt(argv[i+1], 0);
+            }
+            else {
+                project_prompt(argv[i], 1);
+            }
         }
     }
+    
+    return 0;
 }
