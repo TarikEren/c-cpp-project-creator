@@ -95,18 +95,23 @@ void project_prompt(const char* project_name, int create_makefile) {
 }
 
 int main(int argc, const char** argv) { 
-    const char* flags[4] = {"-h", "--no-make"};
+    const char* flags[2] = {"-h", "--no-make"};
     for (int i = 1; i < argc; i++) {
         for (int j = 0; j < 2; j++) {
-            if (!strcmp(flags[i], "-h") && !strcmp(argv[i], "-h"))
+            if (!strcmp(flags[i], "-h") && !strcmp(argv[i], "-h")) {
+                printf("1");
                 help_prompt();
+                return 0;
+            }
             else if (!strcmp(flags[i], "--no-make") && !strcmp(argv[i], "--no-make")) {
                 printf("User opted for no makefile\n");
-                project_prompt(argv[i+1], 0);
+                if (argv[i+1] == NULL) {
+                    printf("No project name provided.");
+                    return 1;
+                }
+                else project_prompt(argv[i+1], 0);
             }
-            else {
-                project_prompt(argv[i], 1);
-            }
+            else project_prompt(argv[i], 1);
         }
     }
     
