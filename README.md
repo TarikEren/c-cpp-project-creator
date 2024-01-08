@@ -1,4 +1,4 @@
-# project-creator (WIP)
+# c-cpp-project-creator (WIP)
 
 #### Lets the user create simple C and C++ project templates using the terminal.
 
