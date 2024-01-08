@@ -19,4 +19,5 @@ Creates C and C++ projects that output a "Hello, World!" message.
     Flags:
     -h          Prints out command list
     --no-make   No makefile
+    -v          Prints out current version
     
