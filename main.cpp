@@ -19,11 +19,17 @@ int main(int argc, const char** argv) {
                 return 1;
             }
             else project_prompt(argv[i+1], 0);
+            if (project_prompt(argv[i+1], 0) == PATH_EXISTS) {
+                return PATH_EXISTS;
+            }
         }
         else if (!strcmp(argv[i], "-v")) {
             printf("version: 2.0.0");
         }
         else project_prompt(argv[i], 1);
+        if (project_prompt(argv[i+1], 0) == PATH_EXISTS) {
+            return PATH_EXISTS;
+        }
     }
     
     return 0;

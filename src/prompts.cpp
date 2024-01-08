@@ -8,15 +8,15 @@ void help_prompt() {
     printf("-h\t\tPrints out command list\n");
     printf("--no-make\tNo makefile\n");
     printf("-v\tPrints out the version\n");
-    exit(EXIT_SUCCESS);
+    return;
 }
 
 std::filesystem::file_status status = {};
 
-void project_prompt(const char* project_name, int create_makefile) {
+int project_prompt(const char* project_name, int create_makefile) {
     if (dir_exists(project_name, status)) {
         printf("ERROR: Path already exists\n");
-        return;
+        return PATH_EXISTS;
     }
     else {
         fs::create_directory(project_name);
@@ -29,33 +29,33 @@ void project_prompt(const char* project_name, int create_makefile) {
                 std::cout << "\nINFO: Project created successfully." << std::endl;
                 create_c_project();
                 create_c_makefile();
-                exit(EXIT_SUCCESS);
+                return SUCCESS;
             }
             else if (opt == 2) {
                 std::cout << "\nINFO: Project created successfully." << std::endl;
                 create_cpp_project();
                 create_cpp_makefile();
-                exit(EXIT_SUCCESS);
+                return SUCCESS;
             }
             else {
                 std::cout << "ERROR: Wrong input" << std::endl;
-                exit(EXIT_FAILURE);
+                return FAILURE;
             }
         }
         else if (create_makefile == 0) {
             if (opt == 1) {
                 std::cout << "\nINFO: Project created successfully." << std::endl;
                 create_c_project();
-                exit(EXIT_SUCCESS);
+                return SUCCESS;
             }
             else if (opt == 2) {
                 std::cout << "\nINFO: Project created successfully." << std::endl;
                 create_cpp_project();
-                exit(EXIT_SUCCESS);
+                return SUCCESS;
             }
             else {
                 std::cout << "ERROR: Wrong input" << std::endl;
-                exit(EXIT_FAILURE);
+                return FAILURE;
             }
         }
     }
