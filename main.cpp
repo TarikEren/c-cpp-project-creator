@@ -108,6 +108,9 @@ int main(int argc, const char** argv) {
             }
             else project_prompt(argv[i+1], 0);
         }
+        else if (!strcmp(argv[i], "-v")) {
+            printf("version: 1.0.0");
+        }
         else project_prompt(argv[i], 1);
     }
     
