@@ -1,6 +1,6 @@
 # project-creator (WIP)
 
-#### Lets the user create simple project templates using the terminal.
+#### Lets the user create simple C and C++ project templates using the terminal.
 
 Creates C and C++ projects that output a "Hello, World!" message.
 
