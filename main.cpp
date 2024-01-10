@@ -2,6 +2,8 @@
 #include "./headers/prompts.h"
 #include <string.h>
 
+//TODO: This part requires some refactoring.
+
 int main(int argc, const char** argv) { 
     if (argc == 1) {
         printf("ERROR: Provide a valid argument. Type project-creator -h for help\n");
