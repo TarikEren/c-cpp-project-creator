@@ -59,4 +59,5 @@ int project_prompt(const char* project_name, int create_makefile) {
             }
         }
     }
+    return SUCCESS;
 }
