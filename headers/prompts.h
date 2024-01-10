@@ -9,6 +9,6 @@ enum return_values {
 
 
 void help_prompt();
-int project_prompt(const char* project_name, int create_makefile);
+int project_prompt(const char* project_name);
 
 #endif

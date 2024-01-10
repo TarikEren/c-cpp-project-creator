@@ -18,7 +18,6 @@ Creates C and C++ projects that output a "Hello, World!" message.
     project-creator [flags] [project name]
     Flags:
     -h          Prints out command list
-    --no-make   No makefile
     -v          Prints out current version
     
 ### Bugs I've noticed:
