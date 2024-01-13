@@ -19,6 +19,3 @@ Creates C and C++ projects that output a "Hello, World!" message.
     Flags:
     -h          Prints out command list
     -v          Prints out current version
-    
-### Bugs I've noticed:
-    - Program tends to go wild when an already existing directory name is provided with the --no-make flag. It doesn't create a directory but for some reason it also thinks that there weren't any names provided.
