@@ -7,7 +7,7 @@ void help_prompt() {
     printf("Creates a C or C++ project template that prints out 'Hello, World!'\n");
     printf("Usage: project-creator [flags] [project name]\n\n");
     printf("Flags:\n");
-    printf("-h\t\tPrints out command list\n");
+    printf("-h\tPrints out command list\n");
     printf("-v\tPrints out the version\n");
     return;
 }

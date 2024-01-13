@@ -18,10 +18,7 @@ int main(int argc, const char** argv) {
             printf("version: 2.0.0");
             break;
         }
-        else if (argv[i] != "-h" && argv[i] != "-v") {
-            if (project_prompt(argv[i+1]) == PATH_EXISTS) {
-                return PATH_EXISTS;
-            }
+        else {
             project_prompt(argv[i]);
         }
     }
