@@ -26,17 +26,17 @@ int project_prompt(const char* project_name) {
         std::cout << "1- C Project\n2- C++ Project\n> ";
         std::cin >> opt; 
         if (opt == 1) {
-            std::cout << "\nINFO: Project created successfully." << std::endl;
             create_c_project();
             create_makefile();
             create_gitignore();
+            std::cout << "\nINFO: Project created successfully." << std::endl;
             return SUCCESS;
         }
         else if (opt == 2) {
-            std::cout << "\nINFO: Project created successfully." << std::endl;
             create_cpp_project();
             create_cmakelists();
             create_gitignore();
+            std::cout << "\nINFO: Project created successfully." << std::endl;
             return SUCCESS;
         }
         else {
