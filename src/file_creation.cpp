@@ -11,7 +11,7 @@ int dir_exists(const fs::path &path, fs::file_status status = fs::file_status{})
     else return SUCCESS;
 };
 
-int create_c_makefile() {
+int create_makefile() {
     std::ofstream makefile("makefile");
 	if (!makefile) 
 		return FAILURE;
@@ -21,7 +21,7 @@ int create_c_makefile() {
 	return SUCCESS;
 }
 
-int create_cpp_makefile() {
+int create_cmakelists() {
 	std::ofstream makefile("makefile");
 	if (!makefile) 
 		return FAILURE;

@@ -28,14 +28,14 @@ int project_prompt(const char* project_name) {
         if (opt == 1) {
             std::cout << "\nINFO: Project created successfully." << std::endl;
             create_c_project();
-            create_c_makefile();
+            create_makefile();
             create_gitignore();
             return SUCCESS;
         }
         else if (opt == 2) {
             std::cout << "\nINFO: Project created successfully." << std::endl;
             create_cpp_project();
-            create_cpp_makefile();
+            create_cmakelists();
             create_gitignore();
             return SUCCESS;
         }
