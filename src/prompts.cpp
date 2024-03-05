@@ -14,7 +14,8 @@ void help_prompt() {
 
 std::filesystem::file_status status = {};
 
-int project_prompt(const char* project_name) {
+int project_prompt(std::string& project_name) {
+    std::string root = "./";
     int git_ignore;
     int file;
     int makefile;
@@ -81,6 +82,7 @@ int project_prompt(const char* project_name) {
             }
         }
         else {
+            //TODO: Add folder deletion.
             std::cout << "ERROR: Wrong input" << std::endl;
             return FAILURE;
         }
