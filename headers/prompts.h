@@ -9,6 +9,6 @@ enum return_values {
 
 
 void help_prompt();
-int project_prompt(const char* project_name);
+int project_prompt(std::string& project_name);
 
 #endif
