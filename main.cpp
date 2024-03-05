@@ -19,7 +19,7 @@ int main(int argc, const char** argv) {
             break;
         }
         else {
-            project_prompt(argv[i]);
+            project_prompt((std::string&)argv[i]);
         }
     }
     
